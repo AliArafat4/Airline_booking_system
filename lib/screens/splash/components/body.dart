@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ics324_project/constants.dart';
+import 'package:ics324_project/screens/sign_in/sign_in_screen.dart';
 import 'package:ics324_project/screens/splash/components/OnboaringController.dart';
 import 'package:ics324_project/size_config.dart';
 import '../../../components/defaultButton.dart';
 import '../components/splash_Content.dart';
-
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -55,7 +55,9 @@ class _BodyState extends State<Body> {
                     Spacer(flex: 3),
                     defultButton(
                       text: "Continue",
-                      press: () {},
+                      press: () {
+                        Navigator.pushNamed(context, signInScreen.routeName);
+                      },
                     ),
                     Spacer()
                   ],
@@ -82,4 +84,3 @@ class _BodyState extends State<Body> {
     );
   }
 }
-
