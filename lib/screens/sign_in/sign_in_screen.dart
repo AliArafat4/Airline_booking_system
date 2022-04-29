@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'components/body.dart';
+
 class signInScreen extends StatelessWidget {
   static String routeName = "/sign_in";
   const signInScreen({Key? key}) : super(key: key);
@@ -10,12 +12,9 @@ class signInScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "Sign In",
-          style: TextStyle(
-            color: Colors.grey,
-            fontSize: 18,
-          ),
         ),
       ),
+      body: Body(),
     );
   }
 }
