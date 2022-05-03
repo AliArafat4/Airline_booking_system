@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:ics324_project/screens/details/details_screen.dart';
 import 'package:ics324_project/screens/forgot_password/forgot_password_screen.dart';
 import 'package:ics324_project/screens/home/home_screen.dart';
 import 'package:ics324_project/screens/login_success/login_success_screens.dart';
@@ -11,4 +12,5 @@ final Map<String, WidgetBuilder> routes = {
   ForgotPasswordScreen.routeName: (context) => ForgotPasswordScreen(),
   LoginSuccessScreen.routeName: (context) => LoginSuccessScreen(),
   HomeScreen.routName: (context) => HomeScreen(),
+  DetailsScreen.routeName: (context) => DetailsScreen(),
 };
