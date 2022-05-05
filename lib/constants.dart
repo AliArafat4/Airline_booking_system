@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'size_config.dart';
 
-const kPrimaryColor = Color(0xFFFF7643);
+const kPrimaryColor = Colors.lightBlue;
 const kPrimaryGradientColor = LinearGradient(
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,
-  colors: [Color(0xFFFFA53E), Color(0xFFFF7643)],
+  colors: [Color(0xFF55BEEB), Color(0xFF64CDD4)],
 );
 
 const kSecondaryColor = Color(0xFF979797);
 const kTextColor = Color(0xFF757575);
+
+final kAppBarColor = Colors.blue[500];
+const kAppBarTextColor = TextStyle(color: Colors.white);
 
 const kAnimationDuration = Duration(milliseconds: 200);
 

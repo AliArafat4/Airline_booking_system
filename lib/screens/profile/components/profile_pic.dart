@@ -10,6 +10,7 @@ SizedBox ProfilePic() {
       overflow: Overflow.visible,
       children: [
         CircleAvatar(
+          backgroundColor: Colors.grey[400],
           backgroundImage: AssetImage("assets/images/Profile Image.png"),
         ),
         Positioned(

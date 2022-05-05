@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ics324_project/screens/forgot_password/components/body.dart';
 
+import '../../constants.dart';
+
 class ForgotPasswordScreen extends StatelessWidget {
   static String routeName = "/forgot_password";
 
@@ -8,7 +10,11 @@ class ForgotPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Forgot password"),
+        backgroundColor: kAppBarColor,
+        title: Text(
+          "Forgot password",
+          style: kAppBarTextColor,
+        ),
       ),
       body: Body(),
     );

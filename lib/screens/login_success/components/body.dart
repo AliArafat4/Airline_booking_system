@@ -9,14 +9,16 @@ class Body extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: SizeConfig.screenHeight * 0.04,
+          width: double.infinity,
+          height: SizeConfig.screenHeight * 0.2,
         ),
         Image.asset(
-          "assets/images/success.png",
-          height: SizeConfig.screenHeight * 0.4,
+          "assets/images/Success.png",
+          height: SizeConfig.screenHeight * 0.25,
         ),
+        SizedBox(height: getPropertionteScreenHeight(20)),
         Text(
-          "Login Success",
+          "Login successfully",
           style: TextStyle(
               fontSize: getPropertionatesScreenWidth(30),
               fontWeight: FontWeight.bold,
@@ -26,7 +28,7 @@ class Body extends StatelessWidget {
         SizedBox(
           width: SizeConfig.screenWidth * 0.6,
           child: defultButton(
-            text: ("Back to home"),
+            text: ("Continue"),
             press: () => Navigator.pushNamed(context, HomeScreen.routName),
           ),
         ),

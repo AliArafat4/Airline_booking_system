@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ics324_project/screens/details/details_screen.dart';
-
 import '../../../models/Product.dart';
 import '../../../size_config.dart';
 import 'product_card.dart';
@@ -16,7 +15,7 @@ class PopularProducts extends StatelessWidget {
     return Column(
       children: [
         SectionTitle(
-          text: "Popular Product",
+          text: "Popular Flights",
           press: () {},
         ),
         SizedBox(

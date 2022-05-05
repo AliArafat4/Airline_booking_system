@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../components/rounded_icon_btn.dart';
 import '../../../constants.dart';
+import '../../../enums.dart';
 import '../../../models/Product.dart';
 import '../../../size_config.dart';
 
@@ -16,18 +17,15 @@ class ColorDots extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Now this is fixed and only for demo
-    int selectedColor = 3;
     return Padding(
       padding:
           EdgeInsets.symmetric(horizontal: getPropertionatesScreenWidth(20)),
       child: Row(
         children: [
-          ...List.generate(
-            product.colors.length,
-            (index) => ColorDot(
-              color: product.colors[index],
-              isSelected: index == selectedColor,
-            ),
+          CustomClassType(
+            press: () {
+              TextStyle(color: Colors.red);
+            },
           ),
           Spacer(),
           RoundedIconsBtn(IconData: Icons.remove, press: () {}),
@@ -42,34 +40,35 @@ class ColorDots extends StatelessWidget {
   }
 }
 
-class ColorDot extends StatelessWidget {
-  const ColorDot({
+class CustomClassType extends StatelessWidget {
+  const CustomClassType({
     Key? key,
-    required this.color,
-    this.isSelected = false,
+    required this.press,
   }) : super(key: key);
 
-  final Color color;
-  final bool isSelected;
-
+  final GestureTapCallback press;
   @override
   Widget build(BuildContext context) {
+    final Color inActiveIconColor = Color(0xFFB6B6B6);
     return Container(
-      margin: EdgeInsets.only(right: 2),
-      padding: EdgeInsets.all(getPropertionatesScreenWidth(8)),
-      height: getPropertionatesScreenWidth(40),
-      width: getPropertionatesScreenWidth(40),
-      decoration: BoxDecoration(
-        color: Colors.transparent,
-        border:
-            Border.all(color: isSelected ? kPrimaryColor : Colors.transparent),
-        shape: BoxShape.circle,
-      ),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: color,
-          shape: BoxShape.circle,
-        ),
+      child: Column(
+        children: [
+          TextButton(
+            onPressed: press,
+            child: Text(
+              "First Class",
+              style: TextStyle(color: inActiveIconColor),
+            ),
+          ),
+          Text(
+            "Business Class",
+            style: TextStyle(color: inActiveIconColor),
+          ),
+          Text(
+            "Economic Class",
+            style: TextStyle(color: inActiveIconColor),
+          ),
+        ],
       ),
     );
   }

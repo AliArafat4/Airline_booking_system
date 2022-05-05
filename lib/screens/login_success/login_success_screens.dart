@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ics324_project/constants.dart';
 
 import '../login_success/components/body.dart';
 
@@ -10,8 +11,9 @@ class LoginSuccessScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 0,
+        backgroundColor: kAppBarColor,
         leading: SizedBox(),
-        title: Text("Login Success"),
       ),
       body: Body(),
     );

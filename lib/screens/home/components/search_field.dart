@@ -24,7 +24,7 @@ class SearchField extends StatelessWidget {
         decoration: InputDecoration(
           enabledBorder: InputBorder.none,
           focusedBorder: InputBorder.none,
-          hintText: "Search Product",
+          hintText: "Search Flight",
           prefixIcon: Icon(
             Icons.search,
             color: Colors.grey,

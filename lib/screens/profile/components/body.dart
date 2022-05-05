@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ics324_project/screens/profile/components/profile_menu.dart';
 
 import 'package:ics324_project/screens/profile/components/profile_pic.dart';
+import 'package:ics324_project/screens/sign_in/sign_in_screen.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -38,7 +39,7 @@ class Body extends StatelessWidget {
         ProfileMenu(
           icon: "assets/icons/Log out.svg",
           text: "Log Out",
-          press: () {},
+          press: () => Navigator.pushNamed(context, signInScreen.routeName),
         ),
       ],
     );

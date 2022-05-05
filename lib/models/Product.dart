@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class Product {
   final String title, description;
   final List<String> images;
-  final List<Color> colors;
+  final List<String> FlightClass;
   final double rating, price;
   final bool isFavourite, isPopular;
 
   Product({
     required this.images,
-    required this.colors,
+    required this.FlightClass,
     this.rating = 0.0,
     this.isFavourite = false,
     this.isPopular = false,
@@ -22,19 +22,17 @@ class Product {
 List<Product> demoProducts = [
   Product(
     images: [
-      "assets/images/ps4_console_white_1.png",
-      "assets/images/ps4_console_white_2.png",
-      "assets/images/ps4_console_white_3.png",
-      "assets/images/ps4_console_white_4.png",
+      "assets/images/Paris_1.png",
+      "assets/images/Paris_2.png",
+      "assets/images/Paris_3.png",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
+    FlightClass: [
+      "First Class",
+      "Buessness Class",
+      "Regular Class",
     ],
-    title: "Wireless Controller for PS4™",
-    price: 64.99,
+    title: "Paris",
+    price: 500,
     description: description,
     rating: 4.8,
     isFavourite: true,
@@ -44,12 +42,7 @@ List<Product> demoProducts = [
     images: [
       "assets/images/Image Popular Product 2.png",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
+    FlightClass: [],
     title: "Nike Sport White - Man Pant",
     price: 50.5,
     description: description,
@@ -60,12 +53,7 @@ List<Product> demoProducts = [
     images: [
       "assets/images/glap.png",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
+    FlightClass: [],
     title: "Gloves XC Omega - Polygon",
     price: 36.55,
     description: description,
@@ -77,12 +65,7 @@ List<Product> demoProducts = [
     images: [
       "assets/images/wireless headset.png",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
+    FlightClass: [],
     title: "Logitech Head",
     price: 20.20,
     description: description,
