@@ -1,16 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ics324_project/components/defaultButton.dart';
-import 'package:ics324_project/screens/forgot_password/forgot_password_screen.dart';
 import 'package:ics324_project/screens/sign_in/components/sign_form.dart';
 import 'package:ics324_project/size_config.dart';
 
-import '../../../components/custom_surfix_icon.dart';
-import '../../../components/form_error.dart';
 import '../../../components/no_account_text.dart';
-import '../../../constants.dart';
 
 class Body extends StatelessWidget {
   @override

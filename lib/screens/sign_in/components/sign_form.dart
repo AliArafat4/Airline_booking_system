@@ -43,9 +43,9 @@ class signFormState extends State<SignForm> {
       child: Column(
         children: [
           buildEmailFormField(),
-          SizedBox(height: getPropertionteScreenHeight(20)),
+          SizedBox(height: getPropertionteScreenHeight(30)),
           buildPasswordFormField(),
-          SizedBox(height: getPropertionteScreenHeight(20)),
+          SizedBox(height: getPropertionteScreenHeight(30)),
           Row(
             children: [
               Checkbox(
@@ -74,10 +74,10 @@ class signFormState extends State<SignForm> {
           defultButton(
             text: "Continue",
             press: () {
-              //check ! !
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
-                //if email and password go to success screen
+                // if all are valid then go to success screen
+
                 Navigator.pushNamed(context, LoginSuccessScreen.routeName);
               }
             },
@@ -92,28 +92,19 @@ class signFormState extends State<SignForm> {
       obscureText: true,
       onSaved: (newValue) => password = newValue!,
       onChanged: (value) {
-        if (value.isNotEmpty && errors.contains(kPassNullError)) {
-          setState(() {
-            errors.remove(kPassNullError);
-          });
-        } else if (value.length >= 8 && errors.contains(kShortPassError)) {
-          setState(() {
-            errors.remove(kShortPassError);
-          });
+        if (value.isNotEmpty) {
+          removeError(error: kPassNullError);
+        } else if (value.length >= 8) {
+          removeError(error: kShortPassError);
         }
         return null;
       },
       validator: (value) {
-        //check this !
-        if (value!.isEmpty && !errors.contains(kPassNullError)) {
-          setState(() {
-            errors.add(kPassNullError);
-          });
+        if (value!.isEmpty) {
+          addError(error: kPassNullError);
           return "";
-        } else if (value.length < 8 && !errors.contains(kShortPassError)) {
-          setState(() {
-            errors.add(kShortPassError);
-          });
+        } else if (value.length < 8) {
+          addError(error: kShortPassError);
           return "";
         }
         return null;
@@ -121,10 +112,10 @@ class signFormState extends State<SignForm> {
       decoration: InputDecoration(
         labelText: "Password",
         hintText: "Enter your password",
+        // If  you are using latest version of flutter then lable text and hint text shown like this
+        // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSufficIcon(
-          svgIcon: "assets/icons/Lock.svg",
-        ),
+        suffixIcon: CustomSufficIcon(svgIcon: "assets/icons/Lock.svg"),
       ),
     );
   }
@@ -134,30 +125,19 @@ class signFormState extends State<SignForm> {
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue!,
       onChanged: (value) {
-        if (value.isNotEmpty && errors.contains(kEmailNullError)) {
-          setState(() {
-            errors.remove(kEmailNullError);
-          });
-        } else if (emailValidatorRegExp.hasMatch(value) &&
-            errors.contains(kInvalidEmailError)) {
-          setState(() {
-            errors.remove(kInvalidEmailError);
-          });
+        if (value.isNotEmpty) {
+          removeError(error: kEmailNullError);
+        } else if (emailValidatorRegExp.hasMatch(value)) {
+          removeError(error: kInvalidEmailError);
         }
         return null;
       },
       validator: (value) {
-        //check this !
-        if (value!.isEmpty && !errors.contains(kEmailNullError)) {
-          setState(() {
-            errors.add(kEmailNullError);
-          });
+        if (value!.isEmpty) {
+          addError(error: kEmailNullError);
           return "";
-        } else if (!emailValidatorRegExp.hasMatch(value) &&
-            !errors.contains(kInvalidEmailError)) {
-          setState(() {
-            errors.add(kInvalidEmailError);
-          });
+        } else if (!emailValidatorRegExp.hasMatch(value)) {
+          addError(error: kInvalidEmailError);
           return "";
         }
         return null;
@@ -165,10 +145,10 @@ class signFormState extends State<SignForm> {
       decoration: InputDecoration(
         labelText: "Email",
         hintText: "Enter your email",
+        // If  you are using latest version of flutter then lable text and hint text shown like this
+        // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSufficIcon(
-          svgIcon: "assets/icons/Mail.svg",
-        ),
+        suffixIcon: CustomSufficIcon(svgIcon: "assets/icons/Mail.svg"),
       ),
     );
   }
