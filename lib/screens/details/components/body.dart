@@ -15,44 +15,46 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ProductImages(product: product),
-        TopRoundedContainer(
-          color: Colors.white,
-          child: Column(
-            children: [
-              ProductDescription(
-                product: product,
-                pressOnSeeMore: () {},
-              ),
-              TopRoundedContainer(
-                color: Color(0xFFF6F7F9),
-                child: Column(
-                  children: [
-                    ColorDots(product: product),
-                    TopRoundedContainer(
-                      color: Colors.white,
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          left: SizeConfig.screenWidth * 0.15,
-                          right: SizeConfig.screenWidth * 0.15,
-                          bottom: getPropertionatesScreenWidth(40),
-                          top: getPropertionatesScreenWidth(15),
-                        ),
-                        child: defultButton(
-                          text: "Add To Cart",
-                          press: () {},
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          ProductImages(product: product),
+          TopRoundedContainer(
+            color: Colors.white,
+            child: Column(
+              children: [
+                ProductDescription(
+                  product: product,
+                  pressOnSeeMore: () {},
+                ),
+                TopRoundedContainer(
+                  color: Color(0xFFF6F7F9),
+                  child: Column(
+                    children: [
+                      ColorDots(product: product),
+                      TopRoundedContainer(
+                        color: Colors.white,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            left: SizeConfig.screenWidth * 0.15,
+                            right: SizeConfig.screenWidth * 0.15,
+                            bottom: getPropertionatesScreenWidth(40),
+                            top: getPropertionatesScreenWidth(15),
+                          ),
+                          child: defultButton(
+                            text: "Add To Cart",
+                            press: () {},
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

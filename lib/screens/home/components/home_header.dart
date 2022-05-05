@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../../../size_config.dart';
+import '../../cart/cart_screen.dart';
 import 'icon_btn_with_counter.dart';
 import 'search_field.dart';
 
@@ -21,7 +21,7 @@ class Homeheader extends StatelessWidget {
           SearchField(),
           IconBtnWithCounterr(
             svgSrc: "assets/icons/Cart Icon.svg",
-            press: () {},
+            press: () => Navigator.pushNamed(context, CartScreen.routeName),
           ),
           IconBtnWithCounterr(
             svgSrc: "assets/icons/Bell.svg",
