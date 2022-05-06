@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ics324_project/enums.dart';
-
 import '../../../components/rounded_icon_btn.dart';
-import '../../../models/Product.dart';
 import '../../../size_config.dart';
 
 enum TicketType { Business_Class, Economic_Class, First_Class }
@@ -32,9 +29,15 @@ class _PurchaseTicktsState extends State<PurchaseTickts> {
                   });
                 },
                 colour: SelectedTicketType == TicketType.First_Class
-                    ? Colors.blue
-                    : Colors.white,
-                cardChild: Text('FirstClass', style: TextStyle(fontSize: 20)),
+                    ? Colors.blueGrey
+                    : Colors.transparent,
+                cardChild: Text(
+                  'FirstClass',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                  ),
+                ),
               ),
               ReusableCard(
                 onPress: () {
@@ -43,10 +46,15 @@ class _PurchaseTicktsState extends State<PurchaseTickts> {
                   });
                 },
                 colour: SelectedTicketType == TicketType.Economic_Class
-                    ? Colors.lightBlue
-                    : Colors.white,
-                cardChild:
-                    Text('Economic Class', style: TextStyle(fontSize: 20)),
+                    ? Colors.blueGrey
+                    : Colors.transparent,
+                cardChild: Text(
+                  'Economic Class',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                  ),
+                ),
               ),
               ReusableCard(
                 onPress: () {
@@ -55,10 +63,15 @@ class _PurchaseTicktsState extends State<PurchaseTickts> {
                   });
                 },
                 colour: SelectedTicketType == TicketType.Business_Class
-                    ? Colors.blue
-                    : Colors.white,
-                cardChild:
-                    Text('Business Class', style: TextStyle(fontSize: 20)),
+                    ? Colors.blueGrey
+                    : Colors.transparent,
+                cardChild: Text(
+                  'Business Class',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                  ),
+                ),
               ),
             ],
           ),

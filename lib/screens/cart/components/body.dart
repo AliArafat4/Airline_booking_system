@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:ics324_project/constants.dart';
 import 'package:ics324_project/models/Cart.dart';
 import 'package:ics324_project/size_config.dart';
-
 import 'cart_item_card.dart';
 
 class Body extends StatefulWidget {

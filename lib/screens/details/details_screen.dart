@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../components/rounded_icon_btn.dart';
+import 'package:ics324_project/constants.dart';
 import '../../models/Product.dart';
 import 'components/body.dart';
 
@@ -12,24 +12,13 @@ class DetailsScreen extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as ProductDetailsArguments;
     return Scaffold(
       backgroundColor: Color(0xFFF5F6F9),
-      // appBar: //CustomAppBar(arguments.product.rating),
-
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(AppBar().preferredSize.height),
-        child: AppBar(
-          backgroundColor: Colors.transparent,
-          leading: Padding(
-            padding: EdgeInsets.only(
-              left: 10,
-            ),
-            child: RoundedIconsBtn(
-              IconData: Icons.arrow_back_ios,
-              press: () => Navigator.pop(context),
-            ),
-          ),
+      appBar: AppBar(
+        backgroundColor: kAppBarColor,
+        title: Text(
+          "Flight Details",
+          style: kAppBarTextColor,
         ),
       ),
-      // body: Body(product: arguments.product),
       body: Body(
         product: arguments.product,
       ),

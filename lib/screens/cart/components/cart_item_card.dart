@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../constants.dart';
 import '../../../models/Cart.dart';
 import '../../../size_config.dart';
@@ -44,7 +43,7 @@ class CartItemCard extends StatelessWidget {
             ),
             Text.rich(
               TextSpan(
-                text: "\$${cart.product.price}}",
+                text: "\$${cart.product.price}",
                 style: TextStyle(color: kPrimaryColor),
                 children: [
                   TextSpan(

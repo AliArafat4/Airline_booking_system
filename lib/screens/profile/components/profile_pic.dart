@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:ics324_project/size_config.dart';
 
 SizedBox ProfilePic() {
   return SizedBox(

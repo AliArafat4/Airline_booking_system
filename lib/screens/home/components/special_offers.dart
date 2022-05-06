@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../../../size_config.dart';
+import '../../details/components/special_for_you.dart';
 import 'section_title.dart';
 
 class SpecialOffers extends StatelessWidget {
@@ -21,24 +21,29 @@ class SpecialOffers extends StatelessWidget {
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              SpecialOfferCard(
-                image: "assets/images/Image Banner 2.png",
-                category: "Smartphones",
-                numOfBrands: 18,
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/images/Image Banner 3.png",
-                category: "Fashion",
-                numOfBrands: 24,
-                press: () {},
-              ),
-              SizedBox(
-                width: getPropertionatesScreenWidth(20),
-              ),
-            ],
+          child: GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, SpecialForYouScreen.routeName);
+            },
+            child: Row(
+              children: [
+                SpecialOfferCard(
+                  image: "assets/images/Image Banner 2.png",
+                  category: "Europe",
+                  numOfBrands: 4,
+                  press: () {},
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/Image Banner 3.png",
+                  category: "Asia",
+                  numOfBrands: 3,
+                  press: () {},
+                ),
+                SizedBox(
+                  width: getPropertionatesScreenWidth(20),
+                ),
+              ],
+            ),
           ),
         ),
       ],
@@ -94,16 +99,25 @@ class SpecialOfferCard extends StatelessWidget {
                     vertical: getPropertionatesScreenWidth(10),
                   ),
                   child: Text.rich(
-                    TextSpan(style: TextStyle(color: Colors.white), children: [
-                      TextSpan(
-                        text: "$category\n",
-                        style: TextStyle(
-                          fontSize: getPropertionatesScreenWidth(18),
-                          fontWeight: FontWeight.bold,
+                    TextSpan(
+                      style: TextStyle(color: Colors.white),
+                      children: [
+                        TextSpan(
+                          text: "$category\n",
+                          style: TextStyle(
+                            fontSize: getPropertionatesScreenWidth(18),
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
                         ),
-                      ),
-                      TextSpan(text: "$numOfBrands Brands"),
-                    ]),
+                        TextSpan(
+                          text: "$numOfBrands Countries",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 )
               ],

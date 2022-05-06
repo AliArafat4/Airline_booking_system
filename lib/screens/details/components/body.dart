@@ -19,6 +19,9 @@ class Body extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
+          SizedBox(
+            height: getPropertionteScreenHeight(3),
+          ),
           ProductImages(product: product),
           TopRoundedContainer(
             color: Colors.white,
@@ -43,7 +46,7 @@ class Body extends StatelessWidget {
                             top: getPropertionatesScreenWidth(15),
                           ),
                           child: defultButton(
-                            text: "Add To Cart",
+                            text: "Add Ticket To Cart",
                             press: () {},
                           ),
                         ),
