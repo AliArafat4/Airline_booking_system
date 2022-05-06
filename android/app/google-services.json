@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "720806062874",
+    "project_id": "aireline-87b91",
+    "storage_bucket": "aireline-87b91.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720806062874:android:36623ff1a9a643c41c5aa3",
+        "android_client_info": {
+          "package_name": "com.example.ics324_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720806062874-1m6hk5p8p0p8c4k22ip5vl6q01fo6sgg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCPTAvMW4P41srMBUygTVOHOKYFki06EA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720806062874-1m6hk5p8p0p8c4k22ip5vl6q01fo6sgg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
