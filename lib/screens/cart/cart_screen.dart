@@ -4,6 +4,7 @@ import 'package:ics324_project/components/defaultButton.dart';
 import 'package:ics324_project/models/Cart.dart';
 import 'package:ics324_project/size_config.dart';
 
+import '../../constants.dart';
 import 'components/body.dart';
 
 class CartScreen extends StatelessWidget {
@@ -15,11 +16,12 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kAppBarColor,
         title: Column(
           children: [
             Text(
               "Your Cart",
-              style: TextStyle(color: Colors.black),
+              style: kAppBarTextColor,
             ),
             Text(
               "${demoCarts.length} items",
@@ -63,12 +65,15 @@ class CheckOurCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text.rich(
-              TextSpan(text: "Total:\n", children: [
-                TextSpan(
-                  text: "\$337.15",
-                  style: TextStyle(fontSize: 16, color: Colors.black),
-                ),
-              ]),
+              TextSpan(
+                text: "Total:\n",
+                children: [
+                  TextSpan(
+                    text: "\$337.15",
+                    style: TextStyle(fontSize: 16, color: Colors.black),
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               width: getPropertionatesScreenWidth(190),

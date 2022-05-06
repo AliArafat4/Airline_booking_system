@@ -22,14 +22,9 @@ class ColorDots extends StatelessWidget {
           EdgeInsets.symmetric(horizontal: getPropertionatesScreenWidth(20)),
       child: Row(
         children: [
-          CustomClassType(
-            press: () {
-              TextStyle(color: Colors.red);
-            },
-          ),
           Spacer(),
           RoundedIconsBtn(IconData: Icons.remove, press: () {}),
-          SizedBox(width: getPropertionatesScreenWidth(20)),
+          SizedBox(width: getPropertionatesScreenWidth(40)),
           RoundedIconsBtn(
             IconData: Icons.add,
             press: () {},

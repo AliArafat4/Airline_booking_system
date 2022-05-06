@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
 import '../../../constants.dart';
 import '../../../models/Product.dart';
 import '../../../size_config.dart';
@@ -47,7 +45,7 @@ class ProductCard extends StatelessWidget {
                 maxLines: 2,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "\$${product.price}",
@@ -55,26 +53,6 @@ class ProductCard extends StatelessWidget {
                       fontSize: getPropertionatesScreenWidth(18),
                       fontWeight: FontWeight.w600,
                       color: kPrimaryColor,
-                    ),
-                  ),
-                  InkWell(
-                    borderRadius: BorderRadius.circular(30),
-                    onTap: () {},
-                    child: Container(
-                      padding: EdgeInsets.all(getPropertionatesScreenWidth(8)),
-                      width: getPropertionatesScreenWidth(28),
-                      height: getPropertionatesScreenWidth(28),
-                      decoration: BoxDecoration(
-                          color: product.isFavourite
-                              ? kPrimaryColor.withOpacity(0.15)
-                              : kSecondaryColor.withOpacity(0.1),
-                          shape: BoxShape.circle),
-                      child: SvgPicture.asset(
-                        "assets/icons/Heart Icon_2.svg",
-                        color: product.isFavourite
-                            ? Color(0xFFFF5858)
-                            : Color(0xFFDBDEE4),
-                      ),
                     ),
                   ),
                 ],

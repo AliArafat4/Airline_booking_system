@@ -25,54 +25,79 @@ List<Product> demoProducts = [
       "assets/images/Paris_1.png",
       "assets/images/Paris_2.png",
       "assets/images/Paris_3.png",
+      "assets/images/Paris_4.png",
     ],
     FlightClass: [
       "First Class",
       "Buessness Class",
       "Regular Class",
     ],
-    title: "Paris",
+    title: "France",
     price: 500,
-    description: description,
+    description: descriptionFrance,
     rating: 4.8,
     isFavourite: true,
     isPopular: true,
   ),
   Product(
     images: [
-      "assets/images/Image Popular Product 2.png",
+      "assets/images/America_1.png",
+      "assets/images/America_2.png",
+      "assets/images/America_3.png",
     ],
-    FlightClass: [],
-    title: "Nike Sport White - Man Pant",
-    price: 50.5,
-    description: description,
-    rating: 4.1,
-    isPopular: true,
-  ),
-  Product(
-    images: [
-      "assets/images/glap.png",
+    FlightClass: [
+      "First Class",
+      "Buessness Class",
+      "Regular Class",
     ],
-    FlightClass: [],
-    title: "Gloves XC Omega - Polygon",
-    price: 36.55,
-    description: description,
-    rating: 4.1,
+    title: "USA",
+    price: 650,
+    description: descriptionAmerica,
+    rating: 4.2,
     isFavourite: true,
     isPopular: true,
   ),
   Product(
     images: [
-      "assets/images/wireless headset.png",
+      "assets/images/Japan_1.png",
+      "assets/images/Japan_2.png",
+      "assets/images/Japan_3.png",
+      "assets/images/Japan_4.png",
     ],
-    FlightClass: [],
-    title: "Logitech Head",
-    price: 20.20,
-    description: description,
-    rating: 4.1,
+    FlightClass: [
+      "First Class",
+      "Buessness Class",
+      "Regular Class",
+    ],
+    title: "Japan",
+    price: 450,
+    description: descriptionJapan,
+    rating: 4.7,
     isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
+    images: [
+      "assets/images/Italy_1.png",
+      "assets/images/Italy_2.png",
+      "assets/images/Italy_3.png",
+      "assets/images/Italy_4.png",
+    ],
+    FlightClass: [
+      "First Class",
+      "Buessness Class",
+      "Regular Class",
+    ],
+    title: "Italy",
+    price: 570,
+    description: descriptionItaly,
+    rating: 4.4,
+    isFavourite: true,
+    isPopular: true,
   ),
 ];
 
-const String description =
-    "Wireless Controller for PS4™ gives you what you want in your gaming from over precision control your games to sharing …";
+const String descriptionFrance = "";
+const String descriptionAmerica = "";
+const String descriptionJapan = "";
+const String descriptionItaly = "";

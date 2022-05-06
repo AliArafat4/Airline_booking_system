@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ics324_project/constants.dart';
 import 'package:ics324_project/screens/otp/components/body.dart';
 
 class OtpScreen extends StatelessWidget {
@@ -9,7 +10,11 @@ class OtpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("OTP Verification"),
+        backgroundColor: kAppBarColor,
+        title: Text(
+          "OTP Verification",
+          style: kAppBarTextColor,
+        ),
       ),
       body: Body(),
     );

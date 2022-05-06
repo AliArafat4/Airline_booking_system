@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ics324_project/components/defaultButton.dart';
+import 'package:ics324_project/screens/details/components/purchase_ticktets.dart';
 
 import '../../../models/Product.dart';
 import '../../../size_config.dart';
@@ -18,6 +19,9 @@ class Body extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
+          SizedBox(
+            height: getPropertionteScreenHeight(3),
+          ),
           ProductImages(product: product),
           TopRoundedContainer(
             color: Colors.white,
@@ -31,7 +35,7 @@ class Body extends StatelessWidget {
                   color: Color(0xFFF6F7F9),
                   child: Column(
                     children: [
-                      ColorDots(product: product),
+                      PurchaseTickts(),
                       TopRoundedContainer(
                         color: Colors.white,
                         child: Padding(
@@ -42,7 +46,7 @@ class Body extends StatelessWidget {
                             top: getPropertionatesScreenWidth(15),
                           ),
                           child: defultButton(
-                            text: "Add To Cart",
+                            text: "Add Ticket To Cart",
                             press: () {},
                           ),
                         ),

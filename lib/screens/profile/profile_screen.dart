@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ics324_project/constants.dart';
 import 'package:ics324_project/enums.dart';
 import 'package:ics324_project/screens/profile/components/body.dart';
 
@@ -12,7 +13,11 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile"),
+        backgroundColor: kAppBarColor,
+        title: Text(
+          "Profile",
+          style: kAppBarTextColor,
+        ),
       ),
       body: Body(),
       bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.profile),
