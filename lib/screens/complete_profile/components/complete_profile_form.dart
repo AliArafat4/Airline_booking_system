@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:ics324_project/screens/otp/otp_screen.dart';
 
@@ -6,6 +8,7 @@ import '../../../components/defaultButton.dart';
 import '../../../components/form_error.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
+import 'package:http/http.dart' as http;
 
 class CompleteProfileForm extends StatefulWidget {
   const CompleteProfileForm({Key? key}) : super(key: key);
@@ -19,8 +22,40 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   late String firstName;
   late String lastName;
   late String phoneNumber;
-  late String adress;
+  late String nationality;
+  //PASSANGER INCEMENT
+  int Passenger_ID = 1;
   final List<String> errors = [];
+
+  Future passenger() async {
+    try {
+      var url = Uri.parse("http://${ipv4}/passenger.php");
+      int i = 0;
+
+      var url_reg = Uri.parse("http://${ipv4}/email_pass_checker.php");
+      var res = await http.get(url_reg);
+      json.decode(res.body);
+      List list_of_acc = json.decode(res.body);
+      List<String> thisEmail = [];
+      List<String> thisPassword = [];
+
+      var acc_obj = json.decode(res.body)[list_of_acc.length - 1];
+      thisEmail.add(acc_obj['email'.trim()]);
+      thisPassword.add(acc_obj['password'.trim()]);
+
+      var response = await http.post(url, body: {
+        "Fname": firstName,
+        "Lname": lastName,
+        "email": thisEmail[0],
+        "password": thisPassword[0],
+        "Phone_number": phoneNumber,
+        "Nationality": nationality,
+        "Passenger_ID": Passenger_ID,
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
 
   void addError({required String error}) {
     if (!errors.contains(error))
@@ -55,6 +90,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           defultButton(
               text: "Continue",
               press: () {
+                passenger();
                 if (_formKey.currentState!.validate()) {
                   //go to OTP
                   Navigator.pushNamed(context, OtpScreen.routeName);
@@ -68,11 +104,12 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   TextFormField buildAdressFormField() {
     return TextFormField(
       // keyboardType: TextInputType.streetAddress,
-      onSaved: (newValue) => adress = newValue!,
+      onSaved: (newValue) => nationality = newValue!,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kAddressNullError);
         }
+        nationality = value;
         return null;
       },
       validator: (value) {
@@ -83,8 +120,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         return null;
       },
       decoration: InputDecoration(
-        labelText: "Adress",
-        hintText: "Enter your adress",
+        labelText: "Nationality",
+        hintText: "Enter your nationality",
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSufficIcon(
           svgIcon: "assets/icons/Location point.svg",
@@ -101,6 +138,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         if (value.isNotEmpty) {
           removeError(error: kPhoneNumberNullError);
         }
+        phoneNumber = value;
         return null;
       },
       validator: (value) {
@@ -133,6 +171,10 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           svgIcon: "assets/icons/User.svg",
         ),
       ),
+      onChanged: (value) {
+        lastName = value;
+        return null;
+      },
     );
   }
 
@@ -144,6 +186,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         if (value.isNotEmpty) {
           removeError(error: kNamelNullError);
         }
+        firstName = value;
         return null;
       },
       validator: (value) {
