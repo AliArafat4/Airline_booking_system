@@ -1,5 +1,5 @@
 # ics324_project
+App Preview images:                                                                                                                                                       
 
-Images: 
 https://drive.google.com/drive/folders/1DsXmcksNLKG5LyCngOHOsip0m5QNqed_?usp=sharing
 
