@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'models/Cart.dart';
 import 'size_config.dart';
 
 const kPrimaryColor = Colors.lightBlue;
@@ -32,10 +33,26 @@ const String kInvalidEmailError = "Please Enter Valid Email";
 const String kPassNullError = "Please Enter Your Password";
 const String kShortPassError = "Password is too short";
 const String kMatchPassError = "Password don't match";
+const String kReEnterPass = "Please Re-Enter Your Password";
 
 const String kNamelNullError = "Please Enter your name";
 const String kPhoneNumberNullError = "Please Enter your phone number";
 const String kAddressNullError = "Please Enter your address";
+
+const String kCardNumberNullError = "Please Enter your credit card number";
+const String kShortCardNumberError = "Card number is too short";
+const String kSecurityNumberNullError = "Please Enter the security number";
+const String kShortSecurityNumberError = "Security number is too short";
+const String kFNamelNullError = "Please Enter your first name";
+const String kLNamelNullError = "Please Enter your last name";
+const String kExpiryDateNullError = "Please Enter the expiry date";
+const String kExpiryDateFormatError = "The expire date format should be MM/YY";
+const String kShortExpiryDateError = "Security number is too short";
+
+const String kEmailExist = "This email is already registered";
+//Local host (ipconfig in cmd to get ipv4)
+const String ipv4 = " 192.168.1.4";
+const discount = 0.2;
 
 final otpInputDecoration = InputDecoration(
   contentPadding:

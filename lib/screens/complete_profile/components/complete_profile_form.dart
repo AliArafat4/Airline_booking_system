@@ -24,13 +24,34 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   late String phoneNumber;
   late String nationality;
   //PASSANGER INCEMENT
-  int Passenger_ID = 1;
+  int Passenger_ID = 0;
+  List Passengers = [];
   final List<String> errors = [];
+  final List<String> thisEmail = [];
+  late String emailExist = " ";
+  List emails = [];
+
+  Future<void> register_check() async {
+    int i = 0;
+    try {
+      var url = Uri.parse("http://${ipv4}/email_pass_checker.php");
+      var response = await http.get(url);
+      json.decode(response.body);
+      List list_of_acc = json.decode(response.body);
+      emails = [];
+      while (list_of_acc.length > i) {
+        var acc_obj = json.decode(response.body)[i];
+        emails.add(acc_obj['email'.trim()]);
+        i++;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
   Future passenger() async {
     try {
       var url = Uri.parse("http://${ipv4}/passenger.php");
-      int i = 0;
 
       var url_reg = Uri.parse("http://${ipv4}/email_pass_checker.php");
       var res = await http.get(url_reg);
@@ -42,7 +63,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       var acc_obj = json.decode(res.body)[list_of_acc.length - 1];
       thisEmail.add(acc_obj['email'.trim()]);
       thisPassword.add(acc_obj['password'.trim()]);
-
+      emailExist = thisEmail[0];
       var response = await http.post(url, body: {
         "Fname": firstName,
         "Lname": lastName,
@@ -50,7 +71,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         "password": thisPassword[0],
         "Phone_number": phoneNumber,
         "Nationality": nationality,
-        "Passenger_ID": Passenger_ID,
+        "Passenger_ID": Passenger_ID.toString(),
       });
     } catch (e) {
       print(e);
@@ -88,14 +109,20 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           FormError(errors: errors),
           SizedBox(height: getPropertionteScreenHeight(40)),
           defultButton(
-              text: "Continue",
-              press: () {
+            text: "Continue",
+            press: () {
+              register_check();
+              if (_formKey.currentState!.validate() &&
+                  !emails.contains(emailExist)) {
+                removeError(error: kEmailExist);
                 passenger();
-                if (_formKey.currentState!.validate()) {
-                  //go to OTP
-                  Navigator.pushNamed(context, OtpScreen.routeName);
-                }
-              })
+                //go to OTP
+                Navigator.pushNamed(context, OtpScreen.routeName);
+              } else {
+                addError(error: kEmailExist);
+              }
+            },
+          ),
         ],
       ),
     );

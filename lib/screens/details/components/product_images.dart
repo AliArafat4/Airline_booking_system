@@ -25,11 +25,10 @@ class _ProductImagesState extends State<ProductImages> {
           width: getPropertionatesScreenWidth(238),
           child: AspectRatio(
             aspectRatio: 1,
-           
-              child: Image.asset(widget.product.images[selectedImage]),
-            ),
+            child: Image.asset(widget.product.images[selectedImage]),
           ),
-        
+        ),
+
         // SizedBox(height: getProportionateScreenWidth(20)),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

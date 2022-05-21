@@ -19,9 +19,13 @@ class DetailsScreen extends StatelessWidget {
           style: kAppBarTextColor,
         ),
       ),
-      body: Body(
-        product: arguments.product,
+      body: SafeArea(
+        child: Body(),
       ),
+      // Body(
+      //   product: arguments.product,
+      //   index: index,
+      // ),
     );
   }
 }

@@ -1,12 +1,31 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:ics324_project/components/defaultButton.dart';
 import 'package:ics324_project/constants.dart';
 import 'package:ics324_project/size_config.dart';
-
+import 'package:http/http.dart' as http;
 import 'otp_form.dart';
 
 class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
+  Body({Key? key}) : super(key: key);
+  List emails = [];
+  Future takeOTPemail() async {
+    int i = 0;
+    try {
+      var url = Uri.parse("http://${ipv4}/email_pass_checker.php");
+      var response = await http.get(url);
+      json.decode(response.body);
+      List list_of_acc = json.decode(response.body);
+      emails = [];
+      while (list_of_acc.length > i) {
+        var acc_obj = json.decode(response.body)[i];
+        emails.add(acc_obj['email'.trim()]);
+        i++;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +39,7 @@ class Body extends StatelessWidget {
             children: [
               SizedBox(height: SizeConfig.screenHeight * 0.05),
               Text("OTP Verification", style: headingStyle),
-              Text("We sent your code to 123456789"),
+              Text("We sent your code to ${emails.toString()}"),
               buildTimer(),
               SizedBox(height: SizeConfig.screenHeight * 0.15),
               OtpForm(),

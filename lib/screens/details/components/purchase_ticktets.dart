@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ics324_project/models/Product.dart';
 import '../../../components/rounded_icon_btn.dart';
 import '../../../size_config.dart';
+import 'cart_controller.dart';
 
 enum TicketType { Business_Class, Economic_Class, First_Class }
 TicketType SelectedTicketType = TicketType.Economic_Class;
@@ -10,9 +13,18 @@ class PurchaseTickts extends StatefulWidget {
   State<PurchaseTickts> createState() => _PurchaseTicktsState();
 }
 
-int numberOfTickets = 1;
+late int numberOfTickets = 1;
+
+int getNumOfTickets() {
+  return numberOfTickets;
+}
+
+TicketType getTicketType() {
+  return SelectedTicketType;
+}
 
 class _PurchaseTicktsState extends State<PurchaseTickts> {
+  final CartController controller = Get.put(CartController());
   @override
   Widget build(BuildContext context) {
     return Padding(

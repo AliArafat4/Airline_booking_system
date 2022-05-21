@@ -18,7 +18,7 @@ class Body extends StatelessWidget {
             ),
             Homeheader(),
             SizedBox(
-              height: getPropertionatesScreenWidth(30),
+              height: getPropertionatesScreenWidth(10),
             ),
             DiscountBanner(),
             SizedBox(

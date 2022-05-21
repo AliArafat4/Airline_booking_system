@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ics324_project/models/Product.dart';
 import '../../../size_config.dart';
 import '../../details/components/special_for_you.dart';
 import 'section_title.dart';
@@ -13,7 +14,7 @@ class SpecialOffers extends StatelessWidget {
     return Column(
       children: [
         SectionTitle(
-          text: "Special for you",
+          text: "All flights",
           press: () {},
         ),
         SizedBox(
@@ -30,13 +31,13 @@ class SpecialOffers extends StatelessWidget {
                 SpecialOfferCard(
                   image: "assets/images/Image Banner 2.png",
                   category: "Europe",
-                  numOfBrands: 4,
+                  numOfBrands: demoProducts.length,
                   press: () {},
                 ),
                 SpecialOfferCard(
                   image: "assets/images/Image Banner 3.png",
                   category: "Asia",
-                  numOfBrands: 3,
+                  numOfBrands: 0,
                   press: () {},
                 ),
                 SizedBox(

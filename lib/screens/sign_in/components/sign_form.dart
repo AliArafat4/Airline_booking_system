@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:ics324_project/screens/forgot_password/forgot_password_screen.dart';
+import 'package:ics324_project/screens/home/admin_home_screen.dart';
 import 'package:ics324_project/screens/login_success/login_success_screens.dart';
 import '../../../components/custom_surfix_icon.dart';
 import '../../../components/defaultButton.dart';
@@ -22,6 +23,7 @@ class signFormState extends State<SignForm> {
   final List<String> errors = [];
   List emails = [];
   List passwords = [];
+
   Future<void> login_check() async {
     int i = 0;
     try {
@@ -97,7 +99,10 @@ class signFormState extends State<SignForm> {
             text: "Continue",
             press: () {
               login_check();
-
+              if (_formKey.currentState!.validate() &&
+                  email.contains("admin")) {
+                Navigator.pushNamed(context, AdminHomeScreen.routeName);
+              }
               if (_formKey.currentState!.validate() &&
                   emails.contains(email) &&
                   passwords[emails.indexOf(email)] == password) {

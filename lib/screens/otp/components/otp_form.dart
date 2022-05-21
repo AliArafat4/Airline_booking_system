@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ics324_project/screens/home/home_screen.dart';
 
 import '../../../components/defaultButton.dart';
 import '../../../constants.dart';
@@ -103,7 +104,11 @@ class _OtpFormState extends State<OtpForm> {
           ],
         ),
         SizedBox(height: SizeConfig.screenHeight * 0.15),
-        defultButton(text: "Continue", press: () {}),
+        defultButton(
+            text: "Continue",
+            press: () {
+              Navigator.pushNamed(context, HomeScreen.routName);
+            }),
       ],
     ));
   }

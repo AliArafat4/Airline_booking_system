@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../size_config.dart';
-import '../../cart/cart_screen.dart';
+
+import '../../details/cart_screen.dart';
+import '../../details/components/cart_controller.dart';
 import 'icon_btn_with_counter.dart';
 import 'search_field.dart';
 
 class Homeheader extends StatelessWidget {
-  const Homeheader({
+  Homeheader({
     Key? key,
   }) : super(key: key);
+  final CartController controller = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +20,24 @@ class Homeheader extends StatelessWidget {
         horizontal: getPropertionatesScreenWidth(20),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          SearchField(),
-          IconBtnWithCounterr(
-            svgSrc: "assets/icons/Cart Icon.svg",
-            press: () => Navigator.pushNamed(context, CartScreen.routeName),
+          // SearchField(),
+          Obx(
+            () => IconBtnWithCounterr(
+                svgSrc: "assets/icons/Cart Icon.svg",
+                numOfItems: controller.numberOfItemsInCartHomeScreen,
+                press: () {
+                  Navigator.pushNamed(context, CartScreen.routeName);
+                }),
           ),
+
           IconBtnWithCounterr(
             svgSrc: "assets/icons/Bell.svg",
             numOfItems: 3,
-            press: () {},
+            press: () {
+              //WAITLIST (MAYBE)
+            },
           ),
         ],
       ),

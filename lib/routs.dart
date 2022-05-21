@@ -1,15 +1,19 @@
 import 'package:flutter/widgets.dart';
+import 'package:ics324_project/screens/details/cart_screen.dart';
 import 'package:ics324_project/screens/details/components/special_for_you.dart';
 
 import 'package:ics324_project/screens/details/details_screen.dart';
 import 'package:ics324_project/screens/forgot_password/forgot_password_screen.dart';
+import 'package:ics324_project/screens/home/admin_home_screen.dart';
+import 'package:ics324_project/screens/home/components/waitlist_screen.dart';
 import 'package:ics324_project/screens/home/home_screen.dart';
 import 'package:ics324_project/screens/login_success/login_success_screens.dart';
+import 'package:ics324_project/screens/payment/payment_details.dart';
+import 'package:ics324_project/screens/payment_success/payment_success_screens.dart';
 import 'package:ics324_project/screens/profile/profile_screen.dart';
 import 'package:ics324_project/screens/sign_in/sign_in_screen.dart';
 import 'package:ics324_project/screens/splash/splash_screen.dart';
 
-import 'screens/cart/cart_screen.dart';
 import 'screens/complete_profile/complete_profile_screen.dart';
 import 'screens/otp/otp_screen.dart';
 import 'screens/sign_up/sign_up_screen.dart';
@@ -27,4 +31,8 @@ final Map<String, WidgetBuilder> routes = {
   CartScreen.routeName: (context) => CartScreen(),
   ProfileScreen.routeName: (context) => ProfileScreen(),
   SpecialForYouScreen.routeName: (context) => SpecialForYouScreen(),
+  PaymentDetailScreen.routName: (context) => PaymentDetailScreen(),
+  PaymentSuccessScreen.routeName: (context) => PaymentSuccessScreen(),
+  AdminHomeScreen.routeName: (context) => AdminHomeScreen(),
+  WaitlistScreen.routeName: (context) => WaitlistScreen(),
 };

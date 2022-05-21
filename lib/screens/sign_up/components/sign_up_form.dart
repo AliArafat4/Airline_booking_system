@@ -1,11 +1,17 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:ics324_project/screens/complete_profile/complete_profile_screen.dart';
+import 'package:ics324_project/screens/home/home_screen.dart';
+import 'package:ics324_project/screens/login_success/login_success_screens.dart';
 
 import '../../../components/custom_surfix_icon.dart';
 import '../../../components/defaultButton.dart';
 import '../../../components/form_error.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
+
+import 'package:http/http.dart' as http;
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({Key? key}) : super(key: key);
@@ -20,6 +26,54 @@ class _SignUpFormState extends State<SignUpForm> {
   late String password;
   late String conform_password;
   final List<String> errors = [];
+
+  List emails = [];
+
+  Future<void> register_check() async {
+    int i = 0;
+    try {
+      var url = Uri.parse("http://${ipv4}/email_pass_checker.php");
+      var response = await http.get(url);
+      json.decode(response.body);
+      List list_of_acc = json.decode(response.body);
+      emails = [];
+      while (list_of_acc.length > i) {
+        var acc_obj = json.decode(response.body)[i];
+        emails.add(acc_obj['email'.trim()]);
+        i++;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Future register() async {
+    try {
+      var url = Uri.parse("http://${ipv4}/register.php");
+      var response = await http.post(url, body: {
+        "email": email,
+        "password": password,
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Future RegisterAdmin() async {
+    try {
+      var url = Uri.parse("http://${ipv4}/register_admin.php");
+      var response = await http.post(url, body: {
+        "Fname": "Admin",
+        "Lname": "Admin",
+        "Email": email,
+        "Password": password,
+        "Phone_number": "0502563652",
+      });
+      print(response.body);
+    } catch (e) {
+      print(e);
+    }
+  }
 
   void addError({required String error}) {
     if (!errors.contains(error))
@@ -51,8 +105,19 @@ class _SignUpFormState extends State<SignUpForm> {
           defultButton(
             text: "Continue",
             press: () {
-              if (_formKey.currentState!.validate()) {
-                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+              register_check();
+              if (email.contains("admin")) {
+                RegisterAdmin();
+                Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+              } else {
+                if (_formKey.currentState!.validate() &&
+                    !emails.contains(email)) {
+                  removeError(error: kEmailExist);
+                  register();
+                  Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+                } else {
+                  addError(error: kEmailExist);
+                }
               }
             },
           ),
@@ -67,7 +132,7 @@ class _SignUpFormState extends State<SignUpForm> {
       onSaved: (newValue) => conform_password = newValue!,
       onChanged: (value) {
         if (value.isNotEmpty) {
-          removeError(error: kPassNullError);
+          removeError(error: kReEnterPass);
         } else if (value.isNotEmpty && conform_password == password) {
           removeError(error: kMatchPassError);
         }
@@ -75,7 +140,7 @@ class _SignUpFormState extends State<SignUpForm> {
       },
       validator: (value) {
         if (value!.isEmpty) {
-          addError(error: kPassNullError);
+          addError(error: kReEnterPass);
           return "";
         } else if ((password != value)) {
           addError(error: kMatchPassError);
@@ -151,6 +216,7 @@ class _SignUpFormState extends State<SignUpForm> {
             errors.remove(kInvalidEmailError);
           });
         }
+        email = value;
         return null;
       },
       validator: (value) {

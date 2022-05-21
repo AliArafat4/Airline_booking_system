@@ -12,7 +12,10 @@ class CompleteProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kAppBarColor,
-        title: Text("Sign up"),
+        title: Text(
+          "Sign up",
+          style: kAppBarTextColor,
+        ),
       ),
       body: Body(),
     );

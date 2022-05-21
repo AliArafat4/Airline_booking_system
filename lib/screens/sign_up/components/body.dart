@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ics324_project/components/defaultButton.dart';
-import 'package:ics324_project/components/form_error.dart';
 import 'package:ics324_project/screens/sign_up/components/sign_up_form.dart';
 import 'package:ics324_project/size_config.dart';
-
-import '../../../components/custom_surfix_icon.dart';
 import '../../../constants.dart';
 
 class Body extends StatelessWidget {
